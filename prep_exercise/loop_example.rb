@@ -108,10 +108,10 @@
 #Exercise 4
 
 def counter(x)
-  puts x
-  if x == 0 
-    puts "time is up!"
-  else 
+  if x <= 0 
+    puts x
+  else
+    puts x 
     counter(x-1)
   end
 end
