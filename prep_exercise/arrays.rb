@@ -25,9 +25,14 @@
 # names = ['bob', 'joe', 'susan', 'margaret']
 # names[3] = 'jody'
 
-array = [1, 2, 3, 4, 5]
+# array = [1, 2, 3, 4, 5]
 
-new_array = array.map {|plus_two| plus_two+2}
-puts "#{new_array}"
-puts "#{array}"
+# new_array = array.map {|plus_two| plus_two+2}
+# puts "#{new_array}"
+# puts "#{array}"
 
+arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+arr.each do |n|
+  puts n
+end
