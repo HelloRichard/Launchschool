@@ -1,0 +1,11 @@
+operator_prompt: |
+  Weclome to the loan calculator.
+  -----------------------------------------------------
+  Please enter the amount of loan you want to take out.
+loan_rate: |
+  Please enter the annual loan interest rate in percentage.
+  (Example for 10% enter "10")
+loan_duration: Please enter the loan duration in years.
+invalid_msg: The input is invalid
+good_bye_msg: Thank you for using the loan calculator. Good Bye!
+retry_msg: If you want to continue press "y"
