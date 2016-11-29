@@ -1,8 +1,8 @@
 # Requirements
 # the loan amount
-# the annual percentage rate 
+# the annual percentage rate
 # the loan durations in years
-# Find: 
+# Find:
 # monthly interest rate
 # loan duration in months
 require 'yaml'
@@ -13,15 +13,7 @@ def prompt(message)
 end
 
 def valid_number?(number)
-  Float(number) > 0 rescue false
-end
-
-def checker?(number)
-  if valid_number?(number)
-    number
-  else
-    prompt(MESSAGE['invalid_msg'])
-  end
+  Float(number) > 0
 end
 
 loop do
@@ -29,7 +21,7 @@ loop do
 
   loan_amount = ''
   loop do
-    loan_amount = gets.chomp
+    loan_amount = gets.chomp.to_f
 
     if valid_number?(loan_amount)
       break
@@ -45,7 +37,7 @@ loop do
   monthly_interest_rate = ''
   loop do
     annual_interest_rate = gets.chomp
-  
+
     decimal_form = annual_interest_rate.to_f / 100
 
     monthly_interest_rate = decimal_form / 12
@@ -67,13 +59,13 @@ loop do
     monthly_loan_duration = yearly_loan_duration.to_i * 12
 
     if valid_number?(monthly_loan_duration)
-        break
-      else
-        prompt(MESSAGE['invalid_msg'])
-      end
+      break
+    else
+      prompt(MESSAGE['invalid_msg'])
+    end
   end
 
-  result = loan_amount.to_f * (monthly_interest_rate/(1-(1+monthly_interest_rate)**(-monthly_loan_duration)))
+  result = loan_amount.to_f * (monthly_interest_rate / (1 - (1 + monthly_interest_rate)**-monthly_loan_duration))
 
   prompt("Your monthly payment is $#{format('%02.2f', result)}")
 

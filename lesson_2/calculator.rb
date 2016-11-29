@@ -26,12 +26,11 @@ def operation_to_message(op)
     "Dividing"
   end
 end
-      
 
 prompt(MESSAGES['welcome'])
 
 name = ''
-loop do 
+loop do
   name = Kernel.gets().chomp()
 
   if name.empty?()
@@ -91,7 +90,6 @@ loop do # main loop
 
   prompt("#{operation_to_message(operator)} the two numbers...")
 
-
   # if operator == '1'
   #   result = number1.to_i + number2.to_i
   # elsif operator == '2'
@@ -100,7 +98,7 @@ loop do # main loop
   #   result = number1.to_i * number2.to_i
   # else
   #   result = number1.to_f / number2.to_f
-  # end 
+  # end
 
   result = case operator
            when '1'
@@ -111,8 +109,8 @@ loop do # main loop
              number1.to_f() * number2.to_f()
            when '4'
              number1.to_f() / number2.to_f()
-  end
-    
+           end
+
   prompt("The result is #{result}")
 
   prompt(MESSAGES['retry_msg'])
@@ -121,4 +119,3 @@ loop do # main loop
 end
 
 prompt(MESSAGES['good_bye_msg'])
-
