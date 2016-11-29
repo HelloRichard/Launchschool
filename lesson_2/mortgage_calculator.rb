@@ -26,27 +26,52 @@ end
 
 loop do
   prompt(MESSAGE['operator_prompt'])
-  loan_amount = gets.chomp
 
-  checker?(loan_amount)
+  loan_amount = ''
+  loop do
+    loan_amount = gets.chomp
+
+    if valid_number?(loan_amount)
+      break
+    else
+      prompt(MESSAGE['invalid_msg'])
+    end
+  end
+
   prompt("You have entered $#{format('%02.2f', loan_amount)}")
 
   prompt(MESSAGE['loan_rate'])
-  annual_interest_rate = gets.chomp
+
+  monthly_interest_rate = ''
+  loop do
+    annual_interest_rate = gets.chomp
   
-  decimal_form = annual_interest_rate.to_f / 100
+    decimal_form = annual_interest_rate.to_f / 100
 
-  monthly_interest_rate = decimal_form / 12
+    monthly_interest_rate = decimal_form / 12
 
-  checker?(monthly_interest_rate)
+    if valid_number?(monthly_interest_rate)
+      break
+    else
+      prompt(MESSAGE['invalid_msg'])
+    end
+  end
+
   prompt("The monthly interest rate is #{format('%02.4f', monthly_interest_rate)}%")
 
+  monthly_loan_duration = ''
   prompt(MESSAGE['loan_duration'])
-  yearly_loan_duration = gets.chomp
-  monthly_loan_duration = yearly_loan_duration.to_i * 12
+  loop do
+    yearly_loan_duration = gets.chomp
 
-  checker?(monthly_loan_duration)
-  prompt("The monthly loan duration is #{monthly_loan_duration.to_i} month(s)")
+    monthly_loan_duration = yearly_loan_duration.to_i * 12
+
+    if valid_number?(monthly_loan_duration)
+        break
+      else
+        prompt(MESSAGE['invalid_msg'])
+      end
+  end
 
   result = loan_amount.to_f * (monthly_interest_rate/(1-(1+monthly_interest_rate)**(-monthly_loan_duration)))
 
