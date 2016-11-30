@@ -1,0 +1,18 @@
+welcome: Welcome to rock, paper, scissor, lizard, spock game
+line: ------------------------------------------------------------------------
+rules: |
+  In this game, the first to get 5 points, wins the game!
+  Here are the rules:
+  Rock crushes scissors and lizard
+  Paper wraps around rock and spock
+  Scissors cut paper and lizard
+  Lizard eats paper and spock
+  Spock vaporizes rock and scissors
+invalid_input: The input is invalid!
+ref: |
+  For faster reference use:
+  r = rock, p = paper, s = scissors, l = lizard, v = spock
+congratulation: Congratulation you beat the computer!
+replay: Do you want to play again? If yes, type y.
+lose_msg: You lost! Better luck next time.
+end_reply: Thank you for playing the game!
