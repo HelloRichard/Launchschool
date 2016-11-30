@@ -13,6 +13,7 @@ ref: |
   For faster reference use:
   r = rock, p = paper, s = scissors, l = lizard, v = spock
 congratulation: Congratulation you beat the computer!
-replay: Do you want to play again? If yes, type y.
+replay: Do you want to play again? (Type 'y' for yes and 'n' for no) 
 lose_msg: You lost! Better luck next time.
 end_reply: Thank you for playing the game!
+check_points: 'User: %{user_points} point(s); Computer: %{computer_points} point(s)'
