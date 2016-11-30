@@ -1,8 +1,13 @@
 
 require 'yaml'
 MESSAGES = YAML.load_file('rps_messages.yml')
-
 GAME_CHOICE = %w(rock paper scissors lizard spock)
+OPTIONAL_CHOICE = { "rock" => "rock",
+                    "paper" => "paper",
+                    "scissors" => "scissors",
+                    "lizard" => "lizard",
+                    "spock" => "spock" }
+
 QUICK_LABEL = { "r" => "rock",
                 "p" => "paper",
                 "s" => "scissors",
@@ -58,7 +63,7 @@ loop do
     loop do
       player1 = gets().chomp().downcase()
 
-      if QUICK_LABEL.include?(player1) || GAME_CHOICE.include?(player1)
+      if QUICK_LABEL.include?(player1) || OPTIONAL_CHOICE.include?(player1)
         break
       else
         prompt(MESSAGES['invalid_input'])
@@ -67,7 +72,7 @@ loop do
 
     computer_choice = GAME_CHOICE.sample
 
-    user = QUICK_LABEL[player1]
+    user = QUICK_LABEL[player1] || OPTIONAL_CHOICE[player1]
 
     prompt("You chose: #{user}; Computer chose: #{computer_choice}")
 
